@@ -1,0 +1,35 @@
+{
+    "name": "skynettechnologies/allinoneaccessibility",
+    "description": "Quick Web Accessibility Implementation with All In One Accessibility!",
+    "keywords": ["filament", "plugin", "accessibility", "wcag","All", "in", "One", "Accessibility"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rajesh Bhimani",
+            "email": "support@skynettechnologies.com",
+            "homepage": "https://skynettechnologies.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "filament/filament": "^4.0",
+        "spatie/laravel-package-tools": "^1.15.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Skynettechnologies\\AllinOneAccessibility\\": "src/"
+        }
+    },
+    "support": {
+        "email": "hello@skynettechnologies.com"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Skynettechnologies\\AllinOneAccessibility\\AllinOneAccessibilityServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
