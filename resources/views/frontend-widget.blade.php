@@ -3,21 +3,21 @@
         try {
             var domain = window.location.hostname || '';
             var domainBase64 = btoa(domain);
-            // Call add-user-domain API only to detect EU requirement
-            fetch('https://ada.skynettechnologies.us/api/add-user-domain', {
+            // Call API only to detect EU requirement
+            fetch('https://ada.skynettechnologies.us/api/widget-settings', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                body: 'website=' + encodeURIComponent(domainBase64)
+                body: 'website_url=' + encodeURIComponent(domain)
             })
                 .then(function (response) {
                     return response.json();
                 })
                 .then(function (data) {
                     var noRequiredEu = '1';
-                    if (data && data.website_data && data.website_data.no_required_eu !== undefined) {
-                        noRequiredEu = data.website_data.no_required_eu;
+                    if (data && data.Data && data.Data.no_required_eu !== undefined) {
+                        noRequiredEu = data.Data.no_required_eu;
                     }
                     var script = document.createElement('script');
                     script.id = 'aioa-adawidget';
