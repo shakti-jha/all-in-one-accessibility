@@ -169,7 +169,7 @@ English (USA), English (UK), English (Australian), English (Canadian), English (
 ```bash
     use Skynettechnologies\AllinOneAccessibility\AllinOneAccessibilityPlugin;
     ->plugins([
-      FilamentAllinOneAccessibilityPlugin::make(),
+      AllinOneAccessibilityPlugin::make(),
     ])
 ```
 
