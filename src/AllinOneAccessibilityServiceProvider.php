@@ -18,6 +18,7 @@ class AllinOneAccessibilityServiceProvider extends PackageServiceProvider
             ->name(static::$name)
             ->hasConfigFile()
             ->hasViews()
+            ->hasTranslations()
             ->hasAssets();
     }
     public function packageRegistered(): void

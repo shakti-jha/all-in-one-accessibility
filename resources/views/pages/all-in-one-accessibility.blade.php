@@ -85,35 +85,53 @@
                                                 <div class="header-content">
                                                     <h1 class="mb-0 text-black">
                                                         <img
-                                                            src="{{ asset('vendor/all-in-one-accessibility/img/all-in-one-accessibility-logo.svg') }}"
-                                                            alt="All in One Accessibility - Skynet Technologies"
+                                                                src="{{ asset('vendor/all-in-one-accessibility/img/all-in-one-accessibility-logo.svg') }}"
+                                                                alt="All in One Accessibility - Skynet Technologies"
                                                         >
                                                     </h1>
                                                 </div>
                                                 <div class="form-text">
-                                                    <B>NOTE: Currently, All in One Accessibility is dedicated to enhancing accessibility
-                                                        specifically for websites and online stores.</B>
-                                                    <B>  <p id="upgrade_html_notes">Please <a
-                                                                href="https://ada.skynettechnologies.us/trial-subscription" target="_blank" style="color: #007bff; text-decoration: underline; font-weight: bold;">Upgrade</a>
-                                                            to full
-                                                            version of All in One Accessibility Pro with 10 days free trial.</p></B>
+                                                    <b>
+                                                        {{ __('all-in-one-accessibility::all-in-one-accessibility.messages.website_note') }}
+                                                    </b>
+
+                                                    <b>
+                                                        <p id="upgrade_html_notes">
+                                                            {!! __('all-in-one-accessibility::all-in-one-accessibility.messages.upgrade_trial', [
+                                                                'link' => '<a href="https://ada.skynettechnologies.us/trial-subscription" target="_blank" style="color: #007bff; text-decoration: underline; font-weight: bold;">Upgrade</a>'
+                                                            ]) !!}
+                                                        </p>
+                                                    </b>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="mb-3 row d-none" id="license_key_html">
-                                            <label for="inputPassword" class="col-sm-3 col-form-label">License Key required for full
-                                                version:</label>
+                                            <label for="inputPassword" class="col-sm-3 col-form-label">
+                                                {{ __('all-in-one-accessibility::all-in-one-accessibility.fields.license_key') }}:
+                                            </label>
                                             <div class="col-sm-9">
                                                 <input type="text" name="license_key" class="form-control" id="license_key" value=""
                                                        onkeyup="mylicensekey()" />
-                                                <p class="form-text " id="error_message">Please enter valid License Key</p>
+                                                <p class="form-text" id="error_message">
+                                                    {{ __('all-in-one-accessibility::all-in-one-accessibility.messages.invalid_license') }}
+                                                </p>
                                             </div><br>
                                         </div>
-                                        <div class="mb-3 row " id="colorcode_html">
-                                            <label class="col-sm-3 col-form-label">Hex color code:</label>
+                                        <div class="mb-3 row" id="colorcode_html">
+                                            <label class="col-sm-3 col-form-label">
+                                                {{ __('all-in-one-accessibility::all-in-one-accessibility.fields.color_code') }}:
+                                            </label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="colorcode"  style="height:auto" class="form-control mb-2" id="colorcode" value="" />
-                                                <div class="form-text">You can customize the All in One Accessibility Widget color. For example: FF5733</div>
+                                                <input type="text"
+                                                       name="colorcode"
+                                                       style="height:auto"
+                                                       class="form-control mb-2"
+                                                       id="colorcode"
+                                                       value="" />
+
+                                                <div class="form-text">
+                                                    {{ __('all-in-one-accessibility::all-in-one-accessibility.fields.color_code_help') }}
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="icon-custom-position-wrapper row">
@@ -123,9 +141,11 @@
                                                         <input type="checkbox" id="custom-position-switcher" class="custom-switcher_inp_2"
                                                                value="1" />
                                                         <span class="custom-switcher_body" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                              title="Toggle to override <Top Left> position" data-bs-custom-class="switcher-tooltip">
+                                                              title="{{ __('all-in-one-accessibility::all-in-one-accessibility.tooltips.override_position') }}" data-bs-custom-class="switcher-tooltip">
                                                         </span>
-                                                        <span class="custom-switcher_label">Enable precise accessibility widget icon position:</span>
+                                                        <span class="custom-switcher_label">
+                                                            {{ __('all-in-one-accessibility::all-in-one-accessibility.fields.enable_precise_position') }}
+                                                        </span>
                                                       </span>
                                                 </label>
                                                 <div class="custom-position-controls hide">
@@ -134,14 +154,19 @@
                                                             <div class="input-group mb-3">
                                                                 <input type="number"  style="height:auto;border-bottom-right-radius: 0px;
     border-top-right-radius: 0px;"  min="0" max="250" class="form-control" id="custom_position_x_value"
-                                                                       aria-label="Value in pixels" aria-describedby="pos-value-input_1" oninput="this.value = Math.min(Math.max(this.value, 0), 250)" />
+                                                                       aria-label="{{ __('all-in-one-accessibility::all-in-one-accessibility.accessibility.pixel_value') }}" aria-describedby="pos-value-input_1" oninput="this.value = Math.min(Math.max(this.value, 0), 250)" />
                                                                 <span class="input-group-text"  style="height:auto"  id="pos-value-input_1">PX</span>
                                                             </div>
                                                         </div>
                                                         <div class="col-auto">
                                                             <select class="form-select"  style="height:auto" name="custom_position_x_direction" aria-label="Default select example">
-                                                                <option selected value="cust-pos-to-the-right">To the right</option>
-                                                                <option value="cust-pos-to-the-left">To the left</option>
+                                                                <option selected value="cust-pos-to-the-right">
+                                                                    {{ __('all-in-one-accessibility::all-in-one-accessibility.position_directions.right') }}
+                                                                </option>
+
+                                                                <option value="cust-pos-to-the-left">
+                                                                    {{ __('all-in-one-accessibility::all-in-one-accessibility.position_directions.left') }}
+                                                                </option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -150,124 +175,160 @@
                                                             <div class="input-group mb-3">
                                                                 <input type="number"  style="height:auto;border-bottom-right-radius: 0px;
     border-top-right-radius: 0px;"  min="0" max="250" class="form-control" id="custom_position_y_value"
-                                                                       aria-label="Value in pixels" aria-describedby="pos-value-input_2" oninput="this.value = Math.min(Math.max(this.value, 0), 250)"/>
+                                                                       aria-label="{{ __('all-in-one-accessibility::all-in-one-accessibility.accessibility.pixel_value') }}" aria-describedby="pos-value-input_2" oninput="this.value = Math.min(Math.max(this.value, 0), 250)"/>
                                                                 <span class="input-group-text"  style="height:auto"  id="pos-value-input_2">PX</span>
                                                             </div>
                                                         </div>
                                                         <div class="col-auto">
                                                             <select class="form-select"  style="height:auto" name="custom_position_y_direction" aria-label="Default select example">
-                                                                <option selected value="cust-pos-to-the-lower">To the bottom</option>
-                                                                <option value="cust-pos-to-the-upper">To the top</option>
+                                                                <option selected value="cust-pos-to-the-lower">
+                                                                    {{ __('all-in-one-accessibility::all-in-one-accessibility.position_directions.bottom') }}
+                                                                </option>
+
+                                                                <option value="cust-pos-to-the-upper">
+                                                                    {{ __('all-in-one-accessibility::all-in-one-accessibility.position_directions.top') }}
+                                                                </option>
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="description">0 - 250px are permitted values</div>
+                                                    <div class="description">
+                                                        {{ __('all-in-one-accessibility::all-in-one-accessibility.messages.position_range') }}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="mb-3 row widget-position" id="position_html">
-                                            <label class="fcol-sm-3 col-form-label">Where would you like to place the accessibility icon on your
-                                                site?
+                                            <label class="fcol-sm-3 col-form-label">
+                                                {{ __('all-in-one-accessibility::all-in-one-accessibility.fields.position') }}
                                             </label>
                                             <div class="col-sm-12 three-col">
                                                 <div
-                                                    class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
+                                                        class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                                                     <input type="radio" id="edit-position-top-left" name="position" value="top_left"
                                                            class="form-radio" />
 
-                                                    <label for="edit-position-top-left" class="option">Top left</label>
+                                                    <label for="edit-position-top-left" class="option">
+                                                        {{ __('all-in-one-accessibility::all-in-one-accessibility.positions.top_left') }}
+                                                    </label>
                                                 </div>
                                                 <div
-                                                    class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
+                                                        class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                                                     <input type="radio" id="edit-position-top-center" name="position" value="top_center"
                                                            class="form-radio" />
 
-                                                    <label for="edit-position-top-center" class="option">Top Center</label>
+                                                    <label for="edit-position-top-center" class="option">
+                                                        {{ __('all-in-one-accessibility::all-in-one-accessibility.positions.top_center') }}
+                                                    </label>
                                                 </div>
                                                 <div
-                                                    class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
+                                                        class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                                                     <input type="radio" id="edit-position-top-right" name="position" value="top_right"
                                                            class="form-radio" />
 
-                                                    <label for="edit-position-top-right" class="option">Top Right</label>
+                                                    <label for="edit-position-top-right" class="option">
+                                                        {{ __('all-in-one-accessibility::all-in-one-accessibility.positions.top_right') }}
+                                                    </label>
                                                 </div>
                                                 <div
-                                                    class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
-                                                    <input type="radio" id="edit-position-middel-left" name="position" value="middel_left"
+                                                        class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
+                                                    <input type="radio" id="edit-position-middle-left" name="position" value="middle_left"
                                                            class="form-radio" />
 
-                                                    <label for="edit-position-middel-left" class="option">Middle left</label>
+                                                    <label for="edit-position-middle-left" class="option">
+                                                        {{ __('all-in-one-accessibility::all-in-one-accessibility.positions.middle_left') }}
+                                                    </label>
                                                 </div>
                                                 <div
-                                                    class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
-                                                    <input type="radio" id="edit-position-middel-right" name="position" value="middel_right"
+                                                        class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
+                                                    <input type="radio" id="edit-position-middle-right" name="position" value="middle_right"
                                                            class="form-radio" />
 
-                                                    <label for="edit-position-middel-right" class="option">Middle Right</label>
+                                                    <label for="edit-position-middle-right" class="option">
+                                                        {{ __('all-in-one-accessibility::all-in-one-accessibility.positions.middle_right') }}
+                                                    </label>
                                                 </div>
                                                 <div
-                                                    class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
+                                                        class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                                                     <input type="radio" id="edit-position-bottom-left" name="position" value="bottom_left"
                                                            class="form-radio" />
 
-                                                    <label for="edit-position-bottom-left" class="option">Bottom left</label>
+                                                    <label for="edit-position-bottom-left" class="option">
+                                                        {{ __('all-in-one-accessibility::all-in-one-accessibility.positions.bottom_left') }}
+                                                    </label>
                                                 </div>
                                                 <div
-                                                    class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
+                                                        class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                                                     <input type="radio" id="edit-position-bottom-center" name="position" value="bottom_center"
                                                            class="form-radio" />
 
-                                                    <label for="edit-position-bottom-center" class="option">Bottom Center</label>
+                                                    <label for="edit-position-bottom-center" class="option">
+                                                        {{ __('all-in-one-accessibility::all-in-one-accessibility.positions.bottom_center') }}
+                                                    </label>
                                                 </div>
                                                 <div
-                                                    class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
+                                                        class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                                                     <input type="radio" id="edit-position-bottom-right" checked="" name="position"
                                                            value="bottom_right" class="form-radio" />
 
-                                                    <label for="edit-position-bottom-right" class="option">Bottom Right</label>
+                                                    <label for="edit-position-bottom-right" class="option">
+                                                        {{ __('all-in-one-accessibility::all-in-one-accessibility.positions.bottom_right') }}
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
                                         <!-- widget icon size -->
-
-                                        <label class="col-sm-3 col-form-label">Select Widget Size:</label>
+                                        <label class="col-sm-3 col-form-label">
+                                            {{ __('all-in-one-accessibility::all-in-one-accessibility.fields.widget_size') }}:
+                                        </label>
                                         <div class="form-radios  mb-3">
                                             <div class="form-radio-item">
                                                 <input data-drupal-selector="edit-widget-size-regularsize" aria-describedby="edit-widget-size--description"  type="radio" id="edit-widget-size-regularsize" name="widget_size" value="0" checked="checked" class="form-radio form-boolean form-boolean--type-radio" wfd-id="id15">
-                                                <label for="edit-widget-size-regularsize" class="form-item__label option">Regular Size</label>
+                                                <label for="edit-widget-size-regularsize" class="form-item__label option">
+                                                    {{ __('all-in-one-accessibility::all-in-one-accessibility.widget_sizes.regular') }}
+                                                </label>
                                             </div>
                                             <div class="form-radio-item">
                                                 <input data-drupal-selector="edit-widget-size-oversize" aria-describedby="edit-widget-size--description" type="radio" id="edit-widget-size-oversize" name="widget_size" value="1" class="form-radio form-boolean form-boolean--type-radio" wfd-id="id16">
-                                                <label for="edit-widget-size-oversize" class="form-item__label option">Oversize</label>
+                                                <label for="edit-widget-size-oversize" class="form-item__label option">
+                                                    {{ __('all-in-one-accessibility::all-in-one-accessibility.widget_sizes.oversize') }}
+                                                </label>
                                             </div>
-                                            <div style="font-size: small; color: #212529;" id="edit-widget-size--wrapper--description" data-drupal-field-elements="description" class="fieldset__description">It only works on desktop view.</div>
+                                            <div style="font-size: small; color: #212529;"
+                                                 id="edit-widget-size--wrapper--description"
+                                                 data-drupal-field-elements="description"
+                                                 class="fieldset__description">
+                                                {{ __('all-in-one-accessibility::all-in-one-accessibility.messages.desktop_only') }}
+                                            </div>
                                         </div>
-
                                         <div class="icon-type-wrapper row" id="select_icon_type">
-                                            <label class="fcol-sm-12 col-form-label">Select icon type:</label>
+                                            <label class="fcol-sm-12 col-form-label">
+                                                {{ __('all-in-one-accessibility::all-in-one-accessibility.fields.icon_type') }}:
+                                            </label>
                                             <div class="col-sm-12" style="margin-right: -15px;">
                                                 <div class="row">
                                                     @for ($i = 1; $i <= 29; $i++)
                                                         <div class="col-auto mb-30">
                                                             <div class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                                                                 <input
-                                                                    type="radio"
-                                                                    id="edit-type-{{ $i }}"
-                                                                    name="aioa_icon_type"
-                                                                    value="aioa-icon-type-{{ $i }}"
-                                                                    class="form-radio"
-                                                                    @checked($i === 1)
+                                                                        type="radio"
+                                                                        id="edit-type-{{ $i }}"
+                                                                        name="aioa_icon_type"
+                                                                        value="aioa-icon-type-{{ $i }}"
+                                                                        class="form-radio"
+                                                                        @checked($i === 1)
                                                                 />
 
                                                                 <label for="edit-type-{{ $i }}" class="option">
                                                                     <img
-                                                                        src="{{ asset("vendor/all-in-one-accessibility/img/aioa-icon-type-$i.svg") }}"
-                                                                        width="65"
-                                                                        height="65"
-                                                                        style="height: 65px;"
-                                                                        alt="Icon Type {{ $i }}"
+                                                                            src="{{ asset("vendor/all-in-one-accessibility/img/aioa-icon-type-$i.svg") }}"
+                                                                            width="65"
+                                                                            height="65"
+                                                                            style="height: 65px;"
+                                                                            alt="{{ __('all-in-one-accessibility::all-in-one-accessibility.icon_types.alt', ['number' => $i]) }}"
                                                                     />
-                                                                    <span class="visually-hidden">Type {{ $i }}</span>
+                                                                    <span class="visually-hidden">
+                                                                        {{ __('all-in-one-accessibility::all-in-one-accessibility.icon_types.label', ['number' => $i]) }}
+                                                                    </span>
                                                                 </label>
                                                             </div>
                                                         </div>
@@ -275,16 +336,17 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="icon-custom-size-wrapper mb-3 row">
                                             <div class="col-sm-12">
                                                 <label class="custom-switcher ">
                                                   <span class="custom-switcher_right">
                                                     <input type="checkbox" id="custom-size-switcher" class="custom-switcher_inp_2" value="1" />
                                                     <span class="custom-switcher_body" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                          title="Toggle to override selected size" data-bs-custom-class="switcher-tooltip">
+                                                          title="{{ __('all-in-one-accessibility::all-in-one-accessibility.tooltips.override_size') }}" data-bs-custom-class="switcher-tooltip">
                                                     </span>
-                                                    <span class="custom-switcher_label">Enable icon custom size:</span>
+                                                    <span class="custom-switcher_label">
+                                                        {{ __('all-in-one-accessibility::all-in-one-accessibility.fields.enable_custom_icon_size') }}
+                                                    </span>
                                                   </span>
                                                 </label>
                                                 <div class="custom-size-controls hide">
@@ -292,17 +354,20 @@
 
                                                     </div>
                                                     <div class="col-auto controls ms-0">
-                                                        <label for="exact-icon-size" class="form-label">Select exact icon size:</label>
+                                                        <label for="exact-icon-size" class="form-label">
+                                                            {{ __('all-in-one-accessibility::all-in-one-accessibility.fields.exact_icon_size') }}:
+                                                        </label>
                                                         <div class="input-group mb-2">
                                                             <input type="number" class="form-control"  style="height:auto"  id="widget_icon_size_custom" name="widget_icon_size_custom" oninput="this.value = Math.min(Math.max(this.value, 0), 150)" value="" min="20" max="150" aria-label="Value in pixels" aria-describedby="size-value-input_1" />
                                                             <span class="input-group-text"  style="height:auto"  id="size-value-input_1">PX</span>
                                                         </div>
-                                                        <div class="description">20 - 150px are permitted values</div>
+                                                        <div class="description">
+                                                            {{ __('all-in-one-accessibility::all-in-one-accessibility.messages.icon_size_range') }}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
                                         @php
                                             $iconSizes = [
                                                 'big' => ['label' => 'Big', 'value' => 'aioa-big-icon', 'size' => 75],
@@ -313,30 +378,31 @@
                                             ];
                                         @endphp
                                         <div class="icon-size-wrapper widget-icon row" id="select_icon_size">
-                                            <label class="fcol-sm-12 col-form-label">Select icon size for Desktop:</label>
-
+                                            <label class="fcol-sm-12 col-form-label">
+                                                {{ __('all-in-one-accessibility::all-in-one-accessibility.fields.desktop_icon_size') }}:
+                                            </label>
                                             <div class="col-sm-12" style="padding-right: calc(var(--bs-gutter-x)* .2); padding-left: calc(var(--bs-gutter-x)* .2);">
                                                 <div class="row">
                                                     @foreach ($iconSizes as $key => $icon)
                                                         <div class="col-auto mb-30">
                                                             <div class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                                                                 <input
-                                                                    type="radio"
-                                                                    id="edit-size-{{ $key }}"
-                                                                    name="aioa_icon_size"
-                                                                    value="{{ $icon['value'] }}"
-                                                                    class="form-radio"
-                                                                    @checked($key === 'medium')
+                                                                        type="radio"
+                                                                        id="edit-size-{{ $key }}"
+                                                                        name="aioa_icon_size"
+                                                                        value="{{ $icon['value'] }}"
+                                                                        class="form-radio"
+                                                                        @checked($key === 'medium')
                                                                 />
 
                                                                 <label for="edit-size-{{ $key }}" class="option">
                                                                     <img
-                                                                        src="{{ asset('vendor/all-in-one-accessibility/img/aioa-icon-type-1.svg') }}"
-                                                                        width="{{ $icon['size'] }}"
-                                                                        height="{{ $icon['size'] }}"
-                                                                        style="height: {{ $icon['size'] }}px;"
-                                                                        class="iconimg"
-                                                                        alt="{{ $icon['label'] }} Icon"
+                                                                            src="{{ asset('vendor/all-in-one-accessibility/img/aioa-icon-type-1.svg') }}"
+                                                                            width="{{ $icon['size'] }}"
+                                                                            height="{{ $icon['size'] }}"
+                                                                            style="height: {{ $icon['size'] }}px;"
+                                                                            class="iconimg"
+                                                                            alt="{{ __('all-in-one-accessibility::all-in-one-accessibility.icon_sizes.alt', ['label' => $icon['label']]) }}"
                                                                     />
                                                                     <span class="visually-hidden">{{ $icon['label'] }}</span>
                                                                 </label>
@@ -346,68 +412,79 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="icon-size-wrapper row" style="display: none">
-                                            <label class="fcol-sm-12 col-form-label">Select icon size for mobile: </label>
+                                            <label class="fcol-sm-12 col-form-label">
+                                                {{ __('all-in-one-accessibility::all-in-one-accessibility.fields.mobile_icon_size') }}:
+                                            </label>
                                             <div class="col-sm-12">
                                                 <div class="row">
                                                     <div class="col-auto mb-30">
                                                         <div
-                                                            class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
+                                                                class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                                                             <input type="radio" id="edit-size-big" name="aioa_icon_size_mb" value="aioa-big-icon-mb"
                                                                    class="form-radio" />
                                                             <label for="edit-size-big" class="option">
                                                                 <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-1.svg"
                                                                      width="75" height="75" />
-                                                                <span class="visually-hidden">Big</span>
+                                                                <span class="visually-hidden">
+                                                                    {{ __('all-in-one-accessibility::all-in-one-accessibility.size_labels.big') }}
+                                                                </span>
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-auto mb-30">
                                                         <div
-                                                            class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
+                                                                class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                                                             <input type="radio" id="edit-size-medium" checked="" name="aioa_icon_size_mb"
                                                                    value="aioa-medium-icon-mb" class="form-radio" />
                                                             <label for="edit-size-medium" class="option">
                                                                 <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-1.svg"
                                                                      width="65" height="65" />
-                                                                <span class="visually-hidden">Medium</span>
+                                                                <span class="visually-hidden">
+                                                                    {{ __('all-in-one-accessibility::all-in-one-accessibility.size_labels.medium') }}
+                                                                </span>
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-auto mb-30">
                                                         <div
-                                                            class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
+                                                                class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                                                             <input type="radio" id="edit-size-default" name="aioa_icon_size_mb"
                                                                    value="aioa-default-icon-mb" class="form-radio" />
                                                             <label for="edit-size-default" class="option">
                                                                 <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-1.svg"
                                                                      width="55" height="55" />
-                                                                <span class="visually-hidden">Default</span>
+                                                                <span class="visually-hidden">
+                                                                    {{ __('all-in-one-accessibility::all-in-one-accessibility.size_labels.default') }}
+                                                                </span>
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-auto mb-30">
                                                         <div
-                                                            class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
+                                                                class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                                                             <input type="radio" id="edit-size-small" name="aioa_icon_size_mb" value="aioa-small-icon-mb"
                                                                    class="form-radio" />
                                                             <label for="edit-size-small" class="option">
                                                                 <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-1.svg"
                                                                      width="45" height="45" />
-                                                                <span class="visually-hidden">Small</span>
+                                                                <span class="visually-hidden">
+                                                                    {{ __('all-in-one-accessibility::all-in-one-accessibility.size_labels.small') }}
+                                                                </span>
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-auto mb-30">
                                                         <div
-                                                            class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
+                                                                class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                                                             <input type="radio" id="edit-size-extra-small" name="aioa_icon_size_mb"
                                                                    value="aioa-extra-small-icon-mb" class="form-radio" />
                                                             <label for="edit-size-extra-small" class="option">
                                                                 <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-1.svg"
                                                                      width="35" height="35"  />
-                                                                <span class="visually-hidden">Extra Small</span>
+                                                                <span class="visually-hidden">
+                                                                    {{ __('all-in-one-accessibility::all-in-one-accessibility.size_labels.extra_small') }}
+                                                                </span>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -415,11 +492,17 @@
                                             </div>
                                         </div>
                                         <div class="save-changes-btn">
-                                            <button type="button" id="submit" onclick="f1()" class="btn btn-primary" style="background-color: #420083;line-height: normal;height: auto;">Save Changes</button>
+                                            <button type="button"
+                                                    id="submit"
+                                                    onclick="f1()"
+                                                    class="btn btn-primary"
+                                                    style="background-color: #420083;line-height: normal;height: auto;">
+                                                {{ __('all-in-one-accessibility::all-in-one-accessibility.buttons.save_changes') }}
+                                            </button>
                                             <div class="mt-3 row " id="save-changes-success">
                                                 <div class="col-sm-12">
-                                                    <div class="form-text" style="padding: inherit;">It may take a few seconds for changes to appear on your website. If you
-                                                        don't see the changes, try clearing your browser cache or checking in a private browsing window.
+                                                    <div class="form-text" style="padding: inherit;">
+                                                        {{ __('all-in-one-accessibility::all-in-one-accessibility.messages.changes_notice') }}
                                                     </div>
                                                 </div>
                                             </div>
@@ -634,7 +717,7 @@
                 toggleCustomPositionUI(enabled);
             });
 
-// end size position
+            // end size position
 
             const colorField = document.getElementById("colorcode");
             if (colorField) {
@@ -722,13 +805,27 @@
         document.addEventListener('DOMContentLoaded', async () => {
             try {
                 const website_name = btoa(domain_name);
-                await Promise.all([
-                    fetchApiResponse(domain_name),
-                    fetchApiData(website_name)
-                ]);
+
+                // Always load widget settings
+                await fetchApiResponse(domain_name);
+
+                // Unique key per domain
+                const storageKey = "domain_added_" + domain_name;
+
+                // Only first time call add-user-domain
+                if (!localStorage.getItem(storageKey)) {
+
+                    await fetchApiData(website_name);
+
+                    localStorage.setItem(storageKey, "done");
+
+                    console.log("add-user-domain called first time only");
+                } else {
+                    console.log("add-user-domain already called before");
+                }
+
             } catch (error) {
-                console.error("Error during API fetch:", error);
-            } finally {
+                console.error("Error:", error);
             }
         });
 
@@ -741,10 +838,10 @@
         // Set default value to custom position inputs
         var positions = {
             top_left: [20, 20],
-            middel_left: [20, 50],
+            middle_left: [20, 50],
             bottom_center: [50, 20],
             top_center: [50, 20],
-            middel_right: [20, 50],
+            middle_right: [20, 50],
             bottom_right: [20, 20],
             top_right: [20, 20],
             bottom_left: [20, 20],
@@ -878,9 +975,6 @@
                 console.log("Custom Size Switcher:", is_widget_custom_size);
             });
         }
-
-
-
 
         function f1() {
             var server_name = domain;
